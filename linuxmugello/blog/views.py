@@ -16,8 +16,8 @@ def vote(request, question_id):
 
 def index(request):
     latest_question_list = Question.objects.order_by('-pub_date')[:5]
-    context = {'latest_question_list': latest_question_list, 'menu': Connect.menu(""), 'submenu': Connect.submnu(""), 'pagina':Connect.body("", "sanpiero"),'luogo':"sanpiero"}
-    return render(request, 'blog/master.html', context)
+    context = {'latest_question_list': latest_question_list, 'menu': Connect.menu(""), 'submenu': Connect.submnu(""), 'pagina':Connect.body("", "sanpiero"),'luogo':"sanpiero",'manifestazione':"news", 'news':Connect.news("")}
+    return render(request, 'blog/news.html', context)
 
 class ResultsView(generic.DetailView):
     model = Question
@@ -60,9 +60,15 @@ def menu(request):
  
 def newss(request):
                 
-        context = {'pagina':Connect.body("", "sanpiero"), 'manifestazione':"news", 'news':Connect.news(""), 'urlx':"html"}
+        context = {'pagina':Connect.body("", "sanpiero"), 'manifestazione':"Blog", 'news':Connect.news(""), 'urlx':"html"}
         return render(request, 'blog/news.html',context)
-    
+  
+def news_one(request):
+        #titolo=request.POST['titolo']
+        id=request.POST['id']
+        context = {'pagina':Connect.body("", "sanpiero"), 'manifestazione':"news", 'news':Connect.news_one("",id)}
+        return render(request, 'blog/news_one.html',context)
+            
 def slide(request):
         luogo="sanpiero"
         context = {'luogo' : luogo, 'slider':Connect.slider("", "index"),'menu': Connect.menu("")}

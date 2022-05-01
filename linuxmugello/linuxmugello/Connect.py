@@ -188,7 +188,7 @@ class Connect:
         row = cursor.fetchone()
         #menu = primanota[1]["descrizione"]
         ###return body
-        body = [dict(id=row[0], author_id=row[1],slug=row[2], titolo=row[3],testo=row[5], img2=row[12],testo2=row[10]) ]
+        body = [dict(id=row[0], author_id=row[1],slug=row[2], date=row[6], titolo=row[3],testo=row[5], img2=row[12],testo2=row[10]) ]
         return body
     
     def slider(self, luogo):
@@ -217,7 +217,7 @@ class Connect:
         # menu = primanota[1]["descrizione"]
         return news
 
-    def news_one(self, titolo, id):
+    def news_one(self, id):
         #data = date.today().strftime("%Y-%m-%d %H:%M:%S")
         #data = "2021-06-08 00:00:00"
         ##titolo=titolo
