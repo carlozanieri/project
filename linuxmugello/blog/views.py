@@ -16,7 +16,7 @@ def vote(request, question_id):
 
 def index(request):
     latest_question_list = Question.objects.order_by('-pub_date')[:5]
-    context = {'latest_question_list': latest_question_list, 'menu': Connect.menu(""), 'submenu': Connect.submnu(""), 'pagina':Connect.body("", "sanpiero"),'luogo':"sanpiero",'manifestazione':"news", 'news':Connect.news("")}
+    context = {'latest_question_list': latest_question_list, 'menu': Connect.menu(""), 'submenu': Connect.submnu(""), 'pagina':Connect.body("", "sanpiero"),'luogo':"sanpiero",'manifestazione':"news", 'news':Connect.news(""), 'urlx': " di Carlo Zanieri"}
     return render(request, 'blog/news.html', context)
 
 class ResultsView(generic.DetailView):
